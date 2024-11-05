@@ -1,0 +1,209 @@
+/* Підключення шрифтів e-Ukraine */
+@font-face {
+    font-family: 'e-Ukraine';
+    src: url('/AStyler/assets/fonts/e-ukraine/e-Ukraine-Regular.woff2') format('woff2'),
+         url('/AStyler/assets/fonts/e-ukraine/e-Ukraine-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'e-Ukraine';
+    src: url('/AStyler/assets/fonts/e-ukraine/e-Ukraine-Bold.woff2') format('woff2'),
+         url('/AStyler/assets/fonts/e-ukraine/e-Ukraine-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Основні кольори для доступності */
+:root {
+    --text-color: #1a1a1a;
+    --text-muted-color: rgba(128, 128, 128, 0.75);
+    --background-color: #ffffff;
+    --primary-color: #000000;
+    --secondary-color: #ffffff;
+    --highlight-color: #FFD600;
+    --error-color: #d32f2f;
+    --success-color: #2e7d32;
+    --warning-color: #ed6c02;
+    --link-color: #0052cc;
+    --link-hover: #003d99;
+    --focus-outline: #2684ff;
+    --dark-bg-color: #1A1A1A;
+    --dark-text-color: #FFFFFF;
+    --dark-primary-color: #333333;
+}
+
+/* Темна тема */
+body.dark-mode {
+    background-color: var(--dark-bg-color);
+    color: var(--dark-text-color);
+}
+
+/* Типографія */
+body {
+    font-family: 'e-Ukraine', sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+h1 { font-size: 42px; line-height: 44px; }
+h2 { font-size: 32px; line-height: 36px; }
+h3 { font-size: 28px; line-height: 32px; }
+h4 { font-size: 24px; line-height: 28px; }
+h5 { font-size: 20px; line-height: 28px; }
+h6, p, li { font-size: 18px; line-height: 28px; }
+
+/* Масштабування тексту */
+p, li, td, th, button, input, select, textarea {
+    font-size: 1rem;
+}
+
+/* Посилання */
+a {
+    color: var(--link-color);
+    text-decoration: underline;
+}
+
+a:hover {
+    color: var(--link-hover);
+}
+
+a:visited {
+    color: #551a8b;
+}
+
+/* Фокус та інтерактивні елементи */
+:focus {
+    outline: 3px solid var(--focus-outline);
+    outline-offset: 2px;
+}
+
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+    box-shadow: 0 0 0 3px rgba(38, 132, 255, 0.25);
+}
+
+/* Кнопки */
+button, .button {
+    background-color: var(--link-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover, .button:hover {
+    background-color: var(--link-hover);
+}
+
+/* Поля вводу */
+input, select, textarea {
+    border: 2px solid #767676;
+    border-radius: 4px;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.input-error {
+    border-color: var(--error-color);
+    animation: shake 0.3s;
+}
+
+.error-message {
+    color: var(--error-color);
+    font-weight: 500;
+    margin-top: 0.25rem;
+    padding-left: 0.5rem;
+    border-left: 3px solid var(--error-color);
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-10px); }
+    40%, 80% { transform: translateX(10px); }
+}
+
+/* Сітка */
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.grid-12 {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+}
+
+/* Підтримка користувачів з кольоровою сліпотою */
+.highlight-important {
+    background-color: var(--highlight-color);
+    color: var(--primary-color);
+    padding: 5px;
+    border: 2px dashed var(--primary-color);
+}
+
+/* Skip Links */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--focus-outline);
+    color: white;
+    padding: 8px;
+    z-index: 100;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Адаптивні стилі для мобільних */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    button, .button, a {
+        padding: 0.75rem;
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* Зменшення руху */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Приховані елементи для екранних зчитувачів */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Плавна зміна кольору для темної теми */
+body {
+    transition: background-color 0.3s, color 0.3s;
+}

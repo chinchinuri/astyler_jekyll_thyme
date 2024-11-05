@@ -1,0 +1,11 @@
+title: Доступний вебсайт
+description: Доступний вебсайт, створений за допомогою Jekyll
+baseurl: "" # встановіть ваш baseurl, якщо потрібно
+url: "" # встановіть ваш домен, якщо потрібно
+
+# Виключення
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+
